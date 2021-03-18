@@ -48,7 +48,7 @@ async function authenticate(user, pass) {
         },
         method: "post"
     };
-    const res = await fetch('http://localhost:8080/login', config);
+    const res = await fetch('/login', config);
     const data = await res.json();
     
     console.log('data', data);

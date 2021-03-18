@@ -10,21 +10,21 @@ import (
 )
 
 var (
-	projectID = ""
-	sessionsCollection = ""
-	usersCollection = ""
+	projectID = "robust-service-285202"
+	sessionsCollection = "sessions"
+	usersCollection = "users"
 	COOKIE_NAME = "SESSIONID"
 )
 
 func main() {
 	fmt.Println("ApiServer v0.02")
 
-	if len(os.Args) < 7 {
-		printUsageInformation()
-		return
-	}
+	// // if len(os.Args) < 7 {
+	// // 	printUsageInformation()
+	// // 	return
+	// // }
 
-	parseFlags()
+	// parseFlags()
 
 	var port string
 	if os.Getenv("PORT") == "" {

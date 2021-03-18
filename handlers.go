@@ -22,7 +22,7 @@ var	messages = []LoginMessage{
 		Message: "",
 		User: "",
 		Role: "Administrator",
-		GoTo: "http://localhost:8080/app",
+		GoTo: "/app",
 	},
 	{
 		Result: "failed",

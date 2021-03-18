@@ -44,7 +44,7 @@ async function showBuckets() {
     mainContent.innerHTML = `<h3>Buckets</h3><br/>`;
     const list = document.createElement('ul');
     mainContent.appendChild(list);
-    const resp = await fetch('http://localhost:8080/app/api/buckets/');
+    const resp = await fetch('/app/api/buckets/');
     const buckets = await resp.json();
 
     if (Array.isArray(buckets)) {
@@ -98,7 +98,7 @@ async function showBucket(bucketName) {
     });
     const list = document.createElement('ul');
     mainContent.appendChild(list)
-    const resp = await fetch(`http://localhost:8080/app/api/buckets/${bucketName}`);
+    const resp = await fetch(`/app/api/buckets/${bucketName}`);
     const objects = await resp.json();
 
     if (Array.isArray(objects)) {
@@ -130,10 +130,10 @@ async function deleteObject(bucketName, object) {
     config = {
         method: "DELETE"
     }
-    const resp = await fetch(`http://localhost:8080/app/api/buckets/${bucketName}/${object}`, config)
+    const resp = await fetch(`/app/api/buckets/${bucketName}/${object}`, config)
     // console.log(resp.status, resp.statusText)
     removeLoader();
-    window.location.replace(`http://localhost:8080/app`);
+    window.location.replace(`/app`);
 }
 
 
@@ -141,7 +141,7 @@ async function showCollections() {
     mainContent.innerHTML = `<h3>Collections</h3><br/>`;
     const list = document.createElement('ul');
     mainContent.appendChild(list);
-    const resp = await fetch('http://localhost:8080/app/api/collections/');
+    const resp = await fetch('/app/api/collections/');
     const collections = await resp.json();
 
     if (Array.isArray(collections)) {
@@ -162,7 +162,7 @@ async function showCollection(collectionName) {
     mainContent.innerHTML = `<h3>Collection ${collectionName}</h3><br/>`;
     const list = document.createElement('ul');
     mainContent.appendChild(list)
-    const resp = await fetch(`http://localhost:8080/app/api/collections/${collectionName}`);
+    const resp = await fetch(`/app/api/collections/${collectionName}`);
     const docs = await resp.json();
 
     if (Array.isArray(docs)) {
@@ -194,10 +194,10 @@ async function deleteDocument(collectionName, doc) {
     config = {
         method: "DELETE"
     }
-    const resp = await fetch(`http://localhost:8080/app/api/collections/${collectionName}/${doc}`, config)
+    const resp = await fetch(`/app/api/collections/${collectionName}/${doc}`, config)
     // console.log(resp.status, resp.statusText)
     removeLoader();
-    window.location.replace(`http://localhost:8080/app`);
+    window.location.replace(`/app`);
 }
 
 function enableUpload() {
@@ -230,9 +230,9 @@ async function doFileUpload(bucketName) {
     }
 
     try {
-        const resp = await fetch(`http://localhost:8080/app/api/buckets/${bucketName}`, config);
+        const resp = await fetch(`/app/api/buckets/${bucketName}`, config);
         console.log('HTTP response code:', resp.status);
-        window.location.replace(`http://localhost:8080/app`);
+        window.location.replace(`/app`);
     } catch {
         console.log('Houston we have a problem...')
     }
